@@ -4,21 +4,20 @@ import glass_stepping_stones.game as r3
 from participant import computer as com
 from participant import my_own_player as player
 
-def report(winner, team, game):
+def report(winner, team, game): #아마 승리자, 승리팀 결과를 엑셀로 작성하는 것 같음
     with open('result_term_project.csv', 'a') as f:  # the file name may change
         # team_num, game, win, defeat, violation, error
-        if winner == team.name:
-            f.writelines(str(team.team_num) + ', ' + game + ', 1, 0, 0, 0\n')
+        if winner == team.name: #만약 팀의 이름과 team의 name이 같다면
+            f.writelines(str(team.team_num) + ', ' + game + ', 1, 0, 0, 0\n') #팀 넘버, 게임, 1, 0, 0, 0 작성
         else:
-            f.writelines(str(team.team_num) + ', ' + game + ', 0, 1, 0, 0\n')
-        f.close()
+            f.writelines(str(team.team_num) + ', ' + game + ', 0, 1, 0, 0\n') #팀 넘버, 게임, 0, 1, 0, 0 작성
 
 if __name__ == '__main__':
-    computer, team = '', ''
+    computer, team = '', '' #computer와 team에 '' 지정
 
     # for initialize your own player as a variable
-    computer = com.computer()
-    team = player.my_own_player()
+    computer = com.computer() #컴퓨터 객체 생성
+    team = player.my_own_player() #
 
     players = [computer, team]
 
